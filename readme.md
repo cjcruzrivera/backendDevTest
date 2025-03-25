@@ -3,7 +3,7 @@ We want to offer a new feature to our customers showing similar products to the 
 
 We already have an endpoint that provides the product Ids similar for a given one. We also have another endpoint that returns the product detail by product Id. [Here](./existingApis.yaml) is the documentation of the existing APIs.
 
-**Create a Spring boot application that exposes the agreed REST API on port 5000.**
+**It's implemented a Flask application that exposes the agreed REST API on port 5000.**
 
 ![Diagram](./assets/diagram.jpg "Diagram")
 
@@ -16,7 +16,7 @@ First of all, you may need to enable file sharing for the `shared` folder on you
 
 Then you can start the mocks and other needed infrastructure with the following command.
 ```
-docker-compose up -d simulado influxdb grafana
+docker-compose up -d --build
 ```
 Check that mocks are working with a sample request to [http://localhost:3001/product/1/similarids](http://localhost:3001/product/1/similarids).
 
