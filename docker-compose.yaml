@@ -23,6 +23,16 @@ services:
     volumes:
       - ./shared/simulado:/app
     command: ./bin/simulado -f /app/mocks.json
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - simulado
+    environment:
+      - FLASK_ENV=development
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   k6:
     image: loadimpact/k6:0.28.0
     ports:
